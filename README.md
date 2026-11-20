@@ -12,7 +12,7 @@ Mod para **Minecraft Forge 1.20.1** que converte todos os advancements registrad
 | Versão | `1.0.0` |
 | Loader | Forge 47.x (`1.20.1`) |
 | Dependência obrigatória | FTB Quests `2001.4+` |
-| Licença | All Rights Reserved (`gradle.properties` / `mods.toml`) |
+| Licença | [LGPL-3.0](LICENSE.txt) |
 
 ## Pré-requisitos
 
