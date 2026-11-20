@@ -1,0 +1,40 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+eclipse
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# forge / local runs
+run
+run-data
+logs
+*.log
+mcmodsrepo
+src/generated
+
+# OS / editor junk
+*.bak
+*~
+*.kra~
+.DS_Store
+
+# env (unused by this mod; kept for hygiene)
+.env
+.env.*
+
+# Files from Forge MDK
+forge*changelog.txt

@@ -1,0 +1,141 @@
+// ============================================================================
+//  Advancements to Quests - configuracao
+//  Este arquivo aceita comentarios (// ou /* */).
+//
+//  Cada ABA de advancements (uma arvore com um advancement raiz) vira um
+//  CAPITULO do FTB Quests. Os capitulos sao organizados em GRUPOS de
+//  capitulos, definidos abaixo em "groups".
+//
+//  Depois de editar, rode /advquests regenerate no jogo (ou reinicie o servidor).
+// ============================================================================
+{
+  // Liga/desliga o mod inteiro.
+  "enabled": true,
+
+  // Gera os capitulos automaticamente toda vez que o servidor inicia.
+  "regenerate_on_start": true,
+
+  // Se voce mover quests no editor do FTB Quests, mantem as posicoes que voce
+  // escolheu nas proximas geracoes. Para voltar ao layout automatico, use
+  // /advquests regenerate reset_layout
+  "keep_manual_positions": true,
+
+  // [CLIENTE] O botao "Advancements" do menu de pause e a tecla de advancements
+  // (L por padrao) abrem o FTB Quests em vez da tela vanilla.
+  // Em servidor dedicado, vale a config do cliente de cada jogador.
+  "replace_advancements_screen": true,
+
+  // [CLIENTE] Segurar Shift ao abrir mostra a tela vanilla de advancements.
+  "vanilla_screen_with_shift": true,
+
+  // Modo de progressao dos capitulos gerados:
+  //   "flexible" -> igual ao vanilla: da para completar um advancement filho
+  //                 antes do pai (recomendado)
+  //   "linear"   -> so libera a quest depois que a anterior foi completada
+  //   "default"  -> usa o padrao definido no proprio FTB Quests
+  "progression_mode": "flexible",
+
+  // Mostra na quest as recompensas do advancement (XP, itens, receitas).
+  // Sao so para exibicao: o resgate e automatico e nao entrega nada; o premio de
+  // verdade continua vindo do proprio advancement, entao nao ha duplicacao.
+  "show_rewards": true,
+
+  // Maximo de itens de loot table mostrados por quest (loot tables aleatorias
+  // mostram todos os itens possiveis).
+  "max_reward_items": 8,
+
+  // Advancements do tipo "obter/craftar item":
+  //   "requirements" -> os itens do criterio viram as proprias tasks da quest (no
+  //                     lugar da task de advancement). Clicar no item abre a receita
+  //                     (JEI/REI/EMI). "Todos os itens" = tasks obrigatorias;
+  //                     "um entre varios" = tasks opcionais (qualquer uma conclui).
+  //                     Ganhar o advancement tambem conclui a quest. (padrao)
+  //   "off"          -> sempre usa a task de advancement
+  // Criterios que nao da para representar fielmente com itens (NBT, encantamento,
+  // comer/usar item, combinacoes mistas...) continuam com a task de advancement.
+  "item_display": "requirements",
+
+  // Se o advancement aceitar mais itens que isso, usa a task de advancement.
+  "max_item_tasks": 6,
+
+  // O que fazer com advancements ocultos (hidden) do vanilla/mods:
+  //   "invisible" -> a quest so aparece depois de completada (igual ao vanilla)
+  //   "visible"   -> mostra normalmente
+  //   "skip"      -> nao gera quest para eles
+  "hidden_advancements": "invisible",
+
+  // Espacamento entre as quests (multiplica a posicao da arvore de advancements).
+  "spacing_x": 1.5,
+  "spacing_y": 1.5,
+
+  // Formato e tamanho da quest por tipo de advancement.
+  // Formatos validos: circle, square, rsquare, diamond, pentagon, hexagon,
+  //                   octagon, heart, gear, none
+  "shapes": { "task": "square", "goal": "rsquare", "challenge": "gear" },
+  "sizes":  { "task": 1.0,      "goal": 1.25,      "challenge": 1.5 },
+
+  // Advancements (ou abas inteiras) que NAO devem virar quests.
+  // Padroes aceitos:
+  //   "minecraft:story/mine_stone"  -> um advancement especifico
+  //   "minecraft:story/*"           -> curinga
+  //   "algummod"                    -> todos os advancements do namespace "algummod"
+  // Se o padrao casar com o advancement RAIZ, a aba inteira e ignorada.
+  "exclude": [
+  ],
+
+  // Grupos de capitulos. Cada aba de advancements entra no PRIMEIRO grupo
+  // cujo "match" casar com o ID do advancement raiz da aba
+  // (ex.: "minecraft:story/root", "botania:main/root").
+  // A ordem dos padroes em "match" tambem define a ordem dos capitulos no grupo.
+  // Grupos sem nenhuma aba no modpack nao aparecem.
+  "groups": [
+    {
+      "id": "vanilla",
+      "title": "Vanilla",
+      "icon": "minecraft:grass_block",
+      "match": [
+        "minecraft:story/*",
+        "minecraft:nether/*",
+        "minecraft:end/*",
+        "minecraft:adventure/*",
+        "minecraft:husbandry/*",
+        "minecraft"
+      ]
+    },
+    {
+      "id": "magic",
+      "title": "Magic",
+      "icon": "minecraft:enchanted_book",
+      "match": [
+        "ars_nouveau",
+        "botania",
+        "irons_spellbooks",
+        "bloodmagic",
+        "occultism",
+        "forbidden_arcanus",
+        "malum",
+        "eidolon"
+      ]
+    },
+    {
+      "id": "tech",
+      "title": "Tech",
+      "icon": "minecraft:redstone",
+      "match": [
+        "create",
+        "mekanism",
+        "thermal",
+        "immersiveengineering",
+        "ae2"
+      ]
+    }
+  ],
+
+  // Grupo para as abas que nao casarem com nenhum grupo acima.
+  // Use null para deixa-las soltas (sem grupo) no FTB Quests.
+  "default_group": {
+    "id": "other",
+    "title": "Other",
+    "icon": "minecraft:book"
+  }
+}
